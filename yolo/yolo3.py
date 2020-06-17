@@ -1,47 +1,17 @@
-"""
-Course:  Training YOLO v3 for Objects Detection with Custom Data
-
-Section-2
-Objects Detection on Image with YOLO v3 and OpenCV
-File: yolo3.py
-"""
-
-# Detecting Objects on Image with OpenCV deep learning library
-#
-# Algorithm:
-# Reading RGB image --> Getting Blob --> Loading YOLO v3 Network -->
-# --> Implementing Forward Pass --> Getting Bounding Boxes -->
-# --> Non-maximum Suppression --> Drawing Bounding Boxes with Labels
-#
-# Result:
-# Window with Detected Objects, Bounding Boxes and Labels
-
-
-# Importing needed libraries
 import numpy as np
 import cv2
 import time
+from card import Card
 
-"""
-Start of:
-Reading input image
-"""
 
-# Reading image with OpenCV library
-# In this way image is opened already as numpy array
-# WARNING! OpenCV by default reads images in BGR format
-# Pay attention! If you're using Windows, the path might looks like:
-# r'images\woman-working-in-the-office.jpg'
-# or:
-# 'images\\woman-working-in-the-office.jpg'
-
-def detect(image_BGR):
+def detect(image_BGR, debug='no'):
 
     # image_BGR = cv2.imread('../images/IMG_1485.jpg')
-    cv2.namedWindow('Original Image', cv2.WINDOW_NORMAL)
-    cv2.imshow('Original Image', image_BGR)
-    cv2.waitKey(0)
-    cv2.destroyWindow('Original Image')
+    if debug == 'yes':
+        cv2.namedWindow('Original Image', cv2.WINDOW_NORMAL)
+        cv2.imshow('Original Image', image_BGR)
+        cv2.waitKey(0)
+        cv2.destroyWindow('Original Image')
 
     # Showing image shape
     print('Image shape:', image_BGR.shape)  # tuple of (511, 767, 3)
@@ -57,10 +27,11 @@ def detect(image_BGR):
     print(blob_to_show.shape)  # (416, 416, 3)
 
     # Showing Blob Image
-    cv2.namedWindow('Blob Image', cv2.WINDOW_NORMAL)
-    cv2.imshow('Blob Image', cv2.cvtColor(blob_to_show, cv2.COLOR_RGB2BGR))
-    cv2.waitKey(0)
-    cv2.destroyWindow('Blob Image')
+    if debug == 'yes':
+        cv2.namedWindow('Blob Image', cv2.WINDOW_NORMAL)
+        cv2.imshow('Blob Image', cv2.cvtColor(blob_to_show, cv2.COLOR_RGB2BGR))
+        cv2.waitKey(0)
+        cv2.destroyWindow('Blob Image')
 
     # Loading class labels from file
     with open('config/classes.names') as f:
@@ -133,11 +104,13 @@ def detect(image_BGR):
 
     # Defining counter for detected objects
     counter = 1
+    cards = []
     if len(results) > 0:
         for i in results.flatten():
             # Showing labels of the detected objects
             print('Object {0}: {1}'.format(counter, labels[int(class_numbers[i])]))
             counter += 1
+            print(labels[int(class_numbers[i])])
 
             # Getting current bounding box coordinates,
             x_min, y_min = bounding_boxes[i][0], bounding_boxes[i][1]
@@ -156,6 +129,14 @@ def detect(image_BGR):
                           (x_min + box_width, y_min + box_height),
                           colour_box_current, 4)
             print('Coords: [', x_min, ',', y_min, ']')
+            card = Card(labels[int(class_numbers[i])], x_min, y_min)
+            insert = True
+            for c in cards:
+                if c.suitNnumber.__eq__(card.suitNnumber):
+                    insert = False
+
+            if insert:
+                cards.append(card)
 
             # Preparing text with label and confidence for current bounding box
             text_box_current = '{}: {:.4f}'.format(labels[int(class_numbers[i])],
@@ -177,3 +158,5 @@ def detect(image_BGR):
     cv2.imshow('Detections', image_BGR)
     cv2.waitKey(0)
     cv2.destroyWindow('Detections')
+
+    return cards
