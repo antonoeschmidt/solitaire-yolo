@@ -5,13 +5,13 @@ import urllib
 app = Flask(__name__)
 
 @app.route('/test', methods=['GET'])
-def hello_world():
+def getPicture():
     # get picture from IMGUR
     url = request.args.get('url')
     print('URL:', url)
     urllib.request.urlretrieve('' + url, 'flask/testFLASK.jpg')
 
-    return 'Hello, World!'
+    return 'Success'
 
 
 '''

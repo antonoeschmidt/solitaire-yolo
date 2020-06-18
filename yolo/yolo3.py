@@ -112,7 +112,7 @@ def detect(image_BGR, debug='no'):
             counter += 1
             print(labels[int(class_numbers[i])])
 
-            # Getting current bounding box coordinates,
+            # Getting current bounding box coordinates
             x_min, y_min = bounding_boxes[i][0], bounding_boxes[i][1]
             box_width, box_height = bounding_boxes[i][2], bounding_boxes[i][3]
 

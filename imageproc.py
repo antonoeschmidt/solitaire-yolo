@@ -11,9 +11,16 @@ def chuckify(img, cols, rows):
     sizeY = img.shape[0]
     print('sizeY: ', sizeY)
 
-    buffer = 50
+    # find optimal division
+    cols = round(sizeX/700)
+    rows = round(sizeY/700)
+    print('cols: ', cols)
+    print('rows', rows)
 
-    for i in range(0, sizeX, int(sizeX / cols)):
+
+    buffer = 100
+
+    for i in range(0, sizeX - 1, int(sizeX / cols)):
         for j in range(0, sizeY - 1, int(sizeY / rows)):
             cv2.rectangle(img, (i, j), (i + (int(sizeX / cols)) + buffer, j + (int(sizeY / rows)) + buffer),
                           (255, 255, 0), 2)
@@ -23,27 +30,27 @@ def chuckify(img, cols, rows):
             # test = img[(i, j), (i + (int(sizeX/cols)) + buffer, j + (int(sizeY/rows)) + buffer)].copy()
             # test = img[0:600, 400:800]
             # test = img[i:i + (int(sizeX/cols)) + buffer, j + (int(sizeY/rows))]
+
             test = img[j: j + (int(sizeY / rows)) + buffer, i:i + (int(sizeX / cols)) + buffer]
-            # print(test.shape)
+            print(test.shape)
+
+            cards = detect(test, 'no')
+
             # cv2.imshow('testcrop', test)
             # cv2.waitKey(0)
             # cv2.destroyWindow('testcrop')
 
-            detect(test, 'yes')
-
-    # test = img[0:100, 0:800]
-    cv2.imshow('testcrop', test)
-    cv2.imshow("123", img)
-    cv2.waitKey(0)
-    cv2.destroyWindow('testcrop')
+    # # full picture
+    # cv2.imshow("123", img)
+    # cv2.waitKey(0)
+    # cv2.destroyWindow('testcrop')
     # cv2.destroyWindow('123')
 
 
-img = cv2.imread('images/test1.png')
+#img = cv2.imread('images/testMark.jpg')
+img = cv2.imread('images/IMG_1485.jpg')
 chuckify(img, 3, 3)
 
-# img = cv2.imread('images/fd3.png')
-# cards = detect(img)
 # for c in cards:
 #     print(c.suitNnumber, '[', c.x, c.y, ']')
 # img = cv2.imread('https://i.imgur.com/aZayn96.jpg')
