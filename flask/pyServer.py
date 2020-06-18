@@ -9,13 +9,18 @@ def getPicture():
     # get picture from IMGUR
     url = request.args.get('url')
     print('URL:', url)
-    urllib.request.urlretrieve('' + url, 'flask/testFLASK.jpg')
-
+    resp = urllib.request.urlretrieve('' + url, 'flask/testFLASK.jpg')
+    print(resp.code)
     return 'Success'
 
 
 '''
+** Commands needed to run FLASK server **
+
 export FLASK_APP=flask/pyServer.py
 export FLASK_ENV=development 
 flask run
 '''
+url = 'https://i.imgur.com/96xIyVb.jpg'
+h, resp = urllib.request.urlretrieve(url, 'testFLASK.jpg')
+print(resp)
