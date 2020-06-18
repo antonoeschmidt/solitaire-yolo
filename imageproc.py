@@ -13,10 +13,12 @@ def chuckify(img, cols, rows):
     sizeY = img.shape[0]
     print('sizeY: ', sizeY)
 
-    cols = round(sizeX / 700)
-    rows = round(sizeY / 700)
+    # find optimal division
+    cols = round(sizeX/700)
+    rows = round(sizeY/700)
     print('cols: ', cols)
     print('rows', rows)
+
 
     buffer = 100
     picNumber = 1
@@ -30,8 +32,12 @@ def chuckify(img, cols, rows):
             # test = img[(i, j), (i + (int(sizeX/cols)) + buffer, j + (int(sizeY/rows)) + buffer)].copy()
             # test = img[0:600, 400:800]
             # test = img[i:i + (int(sizeX/cols)) + buffer, j + (int(sizeY/rows))]
+
             test = img[j: j + (int(sizeY / rows)) + buffer, i:i + (int(sizeX / cols)) + buffer]
-            # print(test.shape)
+            print(test.shape)
+
+            cards = detect(test, 'no')
+
             # cv2.imshow('testcrop', test)
             # cv2.waitKey(0)
             # cv2.destroyWindow('testcrop')
@@ -57,7 +63,8 @@ def chuckify(img, cols, rows):
     return cards
 
 
-img = cv2.imread('images/test1.png')
+#img = cv2.imread('images/testMark.jpg')
+img = cv2.imread('images/IMG_1485.jpg')
 chuckify(img, 3, 3)
 
 # img = cv2.imread('images/fd3.png')
