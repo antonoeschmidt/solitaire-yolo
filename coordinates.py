@@ -15,7 +15,7 @@ def run():
 
     final_cards = []
 
-    cards = chuckify(img, 3, 3)
+    cards = chuckify(img)
 
     for current in cards:
         global_x = current.x
