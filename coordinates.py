@@ -4,10 +4,10 @@ import math
 from card import Card
 
 img = cv2.imread('images/test1.png')
-d = 4
-buffer = 40
-x_size = 200
-y_size = 200
+d = 3
+buffer = 100
+x_size = 700
+y_size = 700
 final_cards = []
 
 cards = chuckify(img, 3, 3)
@@ -24,5 +24,10 @@ for current in cards:
     current.x = global_x
     current.y = global_y
 
+for i in cards:
+    print('n ', i.picNumber)
+    print('x ', i.x)
+    print('y ', i.y)
+    print()
 
 

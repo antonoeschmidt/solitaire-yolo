@@ -13,7 +13,12 @@ def chuckify(img, cols, rows):
     sizeY = img.shape[0]
     print('sizeY: ', sizeY)
 
-    buffer = 50
+    cols = round(sizeX / 700)
+    rows = round(sizeY / 700)
+    print('cols: ', cols)
+    print('rows', rows)
+
+    buffer = 100
     picNumber = 1
     for i in range(0, sizeX, int(sizeX / cols)):
         for j in range(0, sizeY - 1, int(sizeY / rows)):
@@ -31,16 +36,16 @@ def chuckify(img, cols, rows):
             # cv2.waitKey(0)
             # cv2.destroyWindow('testcrop')
 
-            cards2 = detect(test, picNumber, 'yes')
+            cards2 = detect(test, picNumber, 'no')
 
 
-            for i in cards2:
+            for h in cards2:
                 insert = True
                 for c in cards:
-                    if i.suitNumber == c.suitNumber:
+                    if h.suitNumber == c.suitNumber:
                         insert = False
                 if insert:
-                    cards.append(i)
+                    cards.append(h)
             picNumber += 1
 
     # test = img[0:100, 0:800]
