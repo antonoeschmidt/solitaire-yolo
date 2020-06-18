@@ -4,7 +4,7 @@ import time
 from card import Card
 
 
-def detect(image_BGR, picNumber,debug='no'):
+def detect(image_BGR, picNumber, debug='no'):
 
     # image_BGR = cv2.imread('../images/IMG_1485.jpg')
     if debug == 'yes':

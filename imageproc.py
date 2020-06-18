@@ -3,7 +3,7 @@ from yolo.yolo3 import detect
 from card import Card
 
 
-def chuckify(img, cols, rows):
+def chuckify(img):
     # cv2.imread(img)
 
     cards = []
@@ -36,8 +36,6 @@ def chuckify(img, cols, rows):
             test = img[j: j + (int(sizeY / rows)) + buffer, i:i + (int(sizeX / cols)) + buffer]
             print(test.shape)
 
-            cards = detect(test, 'no')
-
             # cv2.imshow('testcrop', test)
             # cv2.waitKey(0)
             # cv2.destroyWindow('testcrop')
@@ -65,7 +63,7 @@ def chuckify(img, cols, rows):
 
 #img = cv2.imread('images/testMark.jpg')
 img = cv2.imread('images/IMG_1485.jpg')
-chuckify(img, 3, 3)
+chuckify(img)
 
 # img = cv2.imread('images/fd3.png')
 # cards = detect(img)
