@@ -4,7 +4,7 @@ import time
 from card import Card
 
 
-def detect(image_BGR, debug='no'):
+def detect(image_BGR, picNumber,debug='no'):
 
     # image_BGR = cv2.imread('../images/IMG_1485.jpg')
     if debug == 'yes':
@@ -129,10 +129,10 @@ def detect(image_BGR, debug='no'):
                           (x_min + box_width, y_min + box_height),
                           colour_box_current, 4)
             print('Coords: [', x_min, ',', y_min, ']')
-            card = Card(labels[int(class_numbers[i])], x_min, y_min)
+            card = Card(labels[int(class_numbers[i])], x_min, y_min, picNumber)
             insert = True
             for c in cards:
-                if c.suitNnumber.__eq__(card.suitNnumber):
+                if c.suitNumber.__eq__(card.suitNumber):
                     insert = False
 
             if insert:
