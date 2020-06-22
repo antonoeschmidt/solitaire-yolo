@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 import time
-from card import Card
+from model.card import Card
 
 
 def detect(image_BGR, debug='no'):
