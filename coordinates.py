@@ -60,7 +60,7 @@ def rowify(image):
         cards.sort(key=lambda card: card.x, reverse=True)
 
         currentSet.append(cards[0])
-        cards.remove(0)
+        cards.remove(cards[0])
         currX = currentSet[0].x
         currY = currentSet[0].y
 
@@ -68,22 +68,22 @@ def rowify(image):
         for i in range(len(cards)):
             if (cards[i].x - currX) >= -xLeeway or (cards[i].x - currX) <= xLeeway:
                 currentSet.append(cards[i])
-                cards.remove(i)
+                cards.remove(cards[i])
 
         currentSet.sort(key=lambda card: card.y, reverse=True)
 
         finalSet.append(currentSet[0])
-        currentSet.remove(0)
+        currentSet.remove(currentSet[0])
 
         for i in range(len(currentSet)):
             if 0 < currentSet[0].y - finalSet[len(finalSet) - 1] <= 100 \
                     and currentSet[0].suit == finalSet.suit \
                     and currentSet[0].value == finalSet[0].value - 1:
                 finalSet.append(currentSet[0])
-                currentSet.remove(0)
+                currentSet.remove(currentSet[0])
             else:
                 cards.append(currentSet[0])
-                currentSet.remove(0)
+                currentSet.remove(currentSet[0])
 
         if rowNumber == 0:
             row1 = finalSet
@@ -102,6 +102,7 @@ def rowify(image):
 
 
         rowNumber = rowNumber + 1
+
 
 
 
