@@ -17,6 +17,12 @@ def getPicture():
 def test():
     return 'Success'
 
+@app.route('/testpicture', methods=['GET'])
+def testingpicture():
+    # get picture from IMGUR
+    url = request.args.get('url')
+    print('URL:', url)
+    return 'Success. Received url was: ' + url
 
 '''
 ** Commands needed to run FLASK server **
