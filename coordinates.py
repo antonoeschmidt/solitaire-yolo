@@ -3,7 +3,6 @@ import cv2
 import math
 
 
-
 def getCoordinates(image):
     img = cv2.imread(image)
 
@@ -34,7 +33,6 @@ def getCoordinates(image):
 
 
 def rowify(image):
-
     row1 = []
     row2 = []
     row3 = []
@@ -52,6 +50,7 @@ def rowify(image):
     yLeeway = 100
 
     cards = getCoordinates(image)
+    cards_read = cards.copy()
 
     while len(cards) != 0:
         currentSet = []
@@ -64,26 +63,25 @@ def rowify(image):
         currX = currentSet[0].x
         currY = currentSet[0].y
 
-
-        for i in range(len(cards)):
-            if (cards[i].x - currX) >= -xLeeway or (cards[i].x - currX) <= xLeeway:
-                currentSet.append(cards[i])
-                cards.remove(cards[i])
+        for i in cards:
+            if (i.x - currX) >= -xLeeway or (i.x - currX) <= xLeeway:
+                currentSet.append(i)
+                cards.remove(i)
 
         currentSet.sort(key=lambda card: card.y, reverse=True)
 
         finalSet.append(currentSet[0])
         currentSet.remove(currentSet[0])
 
-        for i in range(len(currentSet)):
-            if 0 < currentSet[0].y - finalSet[len(finalSet) - 1] <= 100 \
-                    and currentSet[0].suit == finalSet.suit \
-                    and currentSet[0].value == finalSet[0].value - 1:
-                finalSet.append(currentSet[0])
-                currentSet.remove(currentSet[0])
+        for i in currentSet:
+            if 0 < i.y - finalSet[len(finalSet) - 1].y <= 100 \
+                    and i.suit == finalSet[len(finalSet) - 1].suit \
+                    and i.value == finalSet[len(finalSet) - 1].value - 1:
+                finalSet.append(i)
+                currentSet.remove(i)
             else:
-                cards.append(currentSet[0])
-                currentSet.remove(currentSet[0])
+                cards.append(i)
+                currentSet.remove(i)
 
         if rowNumber == 0:
             row1 = finalSet
@@ -100,10 +98,7 @@ def rowify(image):
         if rowNumber == 6:
             row7 = finalSet
 
-
         rowNumber = rowNumber + 1
 
 
-
-
-
+    cards[æ]
