@@ -14,7 +14,7 @@ def getPicture():
     return 'Success'
 
 @app.route('/testflask', methods=['GET'])
-def getPicture():
+def test():
     return 'Success'
 
 
