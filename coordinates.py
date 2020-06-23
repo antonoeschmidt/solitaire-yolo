@@ -1,7 +1,7 @@
-from imageproc import chuckify
+from yolo.imageproc import chuckify
 import cv2
 import math
-from card import Card
+
 
 
 def getCoordinates():

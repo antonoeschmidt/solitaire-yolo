@@ -34,15 +34,15 @@ def detect(image_BGR, picNumber, debug='no'):
         cv2.destroyWindow('Blob Image')
 
     # Loading class labels from file
-    with open('config/classes.names') as f:
+    with open('../config/classes.names') as f:
         labels = [line.strip() for line in f]
 
     print('List with labels names:')
     print(labels)
 
     # Loading trained YOLO v3 Objects Detector
-    network = cv2.dnn.readNetFromDarknet('config/full_set.cfg',
-                                         'config/full_set_00001_4000.weights')
+    network = cv2.dnn.readNetFromDarknet('../config/full_set.cfg',
+                                         '../config/full_set_00001_4000.weights')
 
     # Getting list with names of all layers from YOLO v3 network
     layers_names_all = network.getLayerNames()
@@ -154,9 +154,10 @@ def detect(image_BGR, picNumber, debug='no'):
 
 
     # Showing Original Image with Detected Objects
-    cv2.namedWindow('Detections', cv2.WINDOW_NORMAL)
-    cv2.imshow('Detections', image_BGR)
-    cv2.waitKey(0)
-    cv2.destroyWindow('Detections')
+    if debug == 'yes':
+        cv2.namedWindow('Detections', cv2.WINDOW_NORMAL)
+        cv2.imshow('Detections', image_BGR)
+        cv2.waitKey(0)
+        cv2.destroyWindow('Detections')
 
     return cards
