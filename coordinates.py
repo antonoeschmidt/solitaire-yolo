@@ -4,8 +4,8 @@ import math
 
 
 
-def getCoordinates():
-    img = cv2.imread('images/test1.png')
+def getCoordinates(image):
+    img = cv2.imread(image)
 
     buffer = 100
 
@@ -33,7 +33,7 @@ def getCoordinates():
     return final_cards
 
 
-def rowify():
+def rowify(image):
 
     row1 = []
     row2 = []
@@ -51,7 +51,7 @@ def rowify():
     xLeeway = 100
     yLeeway = 100
 
-    cards = getCoordinates()
+    cards = getCoordinates(image)
 
     while len(cards) != 0:
         currentSet = []

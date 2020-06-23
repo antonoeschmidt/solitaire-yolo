@@ -60,8 +60,8 @@ def chuckify(img):
 
 
 # img = cv2.imread('images/testMark.jpg')
-img = cv2.imread('images/IMG_1485.jpg')
-chuckify(img)
+# img = cv2.imread('images/IMG_1485.jpg')
+# chuckify(img)
 
 # img = cv2.imread('images/fd3.png')
 # cards = detect(img)
