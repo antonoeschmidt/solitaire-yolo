@@ -34,7 +34,39 @@ def getCoordinates():
 
 
 def rowify():
+    xLeeway = 100
+    yLeeway = 100
+
     cards = getCoordinates()
+
+    while len(cards) != 0:
+        currentSet = []
+        finalSet = []
+
+        currentSet.append(cards[0])
+        cards.remove(0)
+        currX = currentSet[0].x
+        currY = currentSet[0].y
+
+        for i in range(len(cards)):
+            if (cards[i].x - currX) >= -xLeeway or (cards[i].x - currX) <= xLeeway:
+                currentSet.append(cards[i])
+                cards.remove(i)
+
+        currentSet.sort(key=lambda card: card.y, reverse=True)
+
+        finalSet.append(currentSet[0])
+        currentSet.remove(0)
+
+        for i in range(len(currentSet)):
+            if 0 < currentSet[0].y - finalSet[len(finalSet) - 1] <= 100 \
+                    and currentSet[0].suit == finalSet.suit \
+                    and currentSet[0].value == finalSet[0].value - 1:
+                finalSet.append(currentSet[0])
+                currentSet.remove(0)
+            else:
+                cards.append(currentSet[0])
+                currentSet.remove(0)
 
     row1 = []
     row2 = []
@@ -43,5 +75,10 @@ def rowify():
     row5 = []
     row6 = []
     row7 = []
+    a1 = []
+    a2 = []
+    a3 = []
+    a4 = []
 
 
+    cards.sort(key=lambda card: card.x, reverse=False)

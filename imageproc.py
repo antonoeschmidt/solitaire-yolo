@@ -14,11 +14,10 @@ def chuckify(img):
     print('sizeY: ', sizeY)
 
     # find optimal division
-    cols = round(sizeX/700)
-    rows = round(sizeY/700)
+    cols = round(sizeX / 700)
+    rows = round(sizeY / 700)
     print('cols: ', cols)
     print('rows', rows)
-
 
     buffer = 100
     picNumber = 1
@@ -42,7 +41,6 @@ def chuckify(img):
 
             cards2 = detect(test, picNumber, 'no')
 
-
             for h in cards2:
                 insert = True
                 for c in cards:
@@ -53,15 +51,15 @@ def chuckify(img):
             picNumber += 1
 
     # test = img[0:100, 0:800]
-    #cv2.imshow('testcrop', test)
-    #cv2.imshow("123", img)
-    #cv2.waitKey(0)
-    #cv2.destroyWindow('testcrop')
+    # cv2.imshow('testcrop', test)
+    # cv2.imshow("123", img)
+    # cv2.waitKey(0)
+    # cv2.destroyWindow('testcrop')
     # cv2.destroyWindow('123')
     return cards
 
 
-#img = cv2.imread('images/testMark.jpg')
+# img = cv2.imread('images/testMark.jpg')
 img = cv2.imread('images/IMG_1485.jpg')
 chuckify(img)
 
