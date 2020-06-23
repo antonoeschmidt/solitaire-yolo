@@ -34,6 +34,20 @@ def getCoordinates():
 
 
 def rowify():
+
+    row1 = []
+    row2 = []
+    row3 = []
+    row4 = []
+    row5 = []
+    row6 = []
+    row7 = []
+    a1 = []
+    a2 = []
+    a3 = []
+    a4 = []
+
+    rowNumber = 0
     xLeeway = 100
     yLeeway = 100
 
@@ -43,10 +57,13 @@ def rowify():
         currentSet = []
         finalSet = []
 
+        cards.sort(key=lambda card: card.x, reverse=True)
+
         currentSet.append(cards[0])
         cards.remove(0)
         currX = currentSet[0].x
         currY = currentSet[0].y
+
 
         for i in range(len(cards)):
             if (cards[i].x - currX) >= -xLeeway or (cards[i].x - currX) <= xLeeway:
@@ -68,17 +85,24 @@ def rowify():
                 cards.append(currentSet[0])
                 currentSet.remove(0)
 
-    row1 = []
-    row2 = []
-    row3 = []
-    row4 = []
-    row5 = []
-    row6 = []
-    row7 = []
-    a1 = []
-    a2 = []
-    a3 = []
-    a4 = []
+        if rowNumber == 0:
+            row1 = finalSet
+        if rowNumber == 1:
+            row2 = finalSet
+        if rowNumber == 2:
+            row3 = finalSet
+        if rowNumber == 3:
+            row4 = finalSet
+        if rowNumber == 4:
+            row5 = finalSet
+        if rowNumber == 5:
+            row6 = finalSet
+        if rowNumber == 6:
+            row7 = finalSet
 
 
-    cards.sort(key=lambda card: card.x, reverse=False)
+        rowNumber = rowNumber + 1
+
+
+
+
