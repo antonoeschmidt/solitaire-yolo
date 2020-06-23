@@ -13,8 +13,8 @@ def getPicture():
     print(resp.code)
     return 'Success'
 
-@app.route('/test1', methods=['GET'])
-def getPicture():
+@app.route('/testflask', methods=['GET'])
+def test():
     return 'Success'
 
 
