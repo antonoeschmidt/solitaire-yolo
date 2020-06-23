@@ -31,20 +31,6 @@ data = [
     json.loads(jscard1),
 ]
 print("SENDING OBJECTS \n", data)
-# game = [z]
-# row1 = []
-# row2 = []
-# row3 = []
-# row4 = []
-# row5 = []
-# row6 = []
-# row7 = []
-# a1 = []
-# a2 = []
-# a3 = []
-# a4 = []
-# deck = []
-# game = [row1, row2, row3, row4, row5, row6, row7, a1, a2, a3, a4, deck]
 
 url = 'http://localhost:8081/Hello'
 headers = {'Content-Type': "application/json", 'Accept': "application/json"}
