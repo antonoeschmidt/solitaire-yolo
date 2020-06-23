@@ -1,6 +1,7 @@
-# from imageproc import chuckify
+from yolo.imageproc import chuckify
 from flask import Flask
 from flask import request
+import cv2
 import urllib
 app = Flask(__name__)
 
@@ -13,8 +14,11 @@ def getPicture():
     print(resp.code)
     return 'Success'
 
-@app.route('/testflask', methods=['GET'])
-def test():
+@app.route('/mark', methods=['GET'])
+def mark():
+    cards = chuckify('../images/IMG_1488.JPG')
+    for i in cards:
+        print(i)
     return 'Success'
 
 @app.route('/testpicture', methods=['GET'])
@@ -24,6 +28,11 @@ def testingpicture():
     print('URL:', url)
     return 'Success. Received url was: ' + url
 
+@app.route('/quit')
+def quit():
+    func = request.environ.get('werkzeug.server.shutdown')
+    func()
+    return "Quitting..."
 '''
 ** Commands needed to run FLASK server **
 
@@ -33,6 +42,13 @@ flask run
 flask run --host=0.0.0.0 --port=80
 
 '''
-url = 'https://i.imgur.com/96xIyVb.jpg'
-h, resp = urllib.request.urlretrieve(url, 'testFLASK.jpg')
-print(resp)
+# url = 'https://i.imgur.com/96xIyVb.jpg'
+# h, resp = urllib.request.urlretrieve(url, 'testFLASK.jpg')
+# print(resp)
+img = cv2.imread('../images/IMG_1488.JPG')
+cards = chuckify(img)
+for i in cards:
+    print(i.suitNumber)
+cv2.imshow('Final', img)
+cv2.waitKey(0)
+cv2.destroyWindow('Finall')
