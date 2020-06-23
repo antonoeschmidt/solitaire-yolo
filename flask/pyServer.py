@@ -13,6 +13,10 @@ def getPicture():
     print(resp.code)
     return 'Success'
 
+@app.route('/test1', methods=['GET'])
+def getPicture():
+    return 'Success'
+
 
 '''
 ** Commands needed to run FLASK server **
@@ -20,6 +24,8 @@ def getPicture():
 export FLASK_APP=flask/pyServer.py
 export FLASK_ENV=development 
 flask run
+flask run --host=0.0.0.0 --port=80
+
 '''
 url = 'https://i.imgur.com/96xIyVb.jpg'
 h, resp = urllib.request.urlretrieve(url, 'testFLASK.jpg')

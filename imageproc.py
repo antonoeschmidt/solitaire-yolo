@@ -40,7 +40,7 @@ def chuckify(img):
             # cv2.waitKey(0)
             # cv2.destroyWindow('testcrop')
 
-            cards2 = detect(test, picNumber, 'no')
+            cards2 = detect(test, picNumber, 'yes')
 
 
             for h in cards2:
@@ -62,7 +62,7 @@ def chuckify(img):
 
 
 #img = cv2.imread('images/testMark.jpg')
-img = cv2.imread('images/IMG_1485.jpg')
+img = cv2.imread('images/IMG_1488.JPG')
 chuckify(img)
 
 # img = cv2.imread('images/fd3.png')
