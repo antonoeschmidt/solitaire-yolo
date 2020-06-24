@@ -1,12 +1,17 @@
-import sys
+# import sys
 # sys.path.append('/home/antonio/solitaire-yolo/yolo')
 
+# MODULE_PATH = "/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/yolo/__init__.py"
+MODULE_PATH = "/home/antonio/solitaire-yolo/yolo/__init__.py"
+MODULE_NAME = "yolo"
 import importlib.util
-spec = importlib.util.spec_from_file_location("imageproc", "/home/antonio/solitaire-yolo/yolo")
-foo = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(foo)
-foo.MyClass()
+import sys
+spec = importlib.util.spec_from_file_location(MODULE_NAME, MODULE_PATH)
+module = importlib.util.module_from_spec(spec)
+sys.modules[spec.name] = module
+spec.loader.exec_module(module)
 
+from yolo import imageproc
 
 # from yolo.imageproc import chuckify
 # from coordinates import rowify
