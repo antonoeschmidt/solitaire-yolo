@@ -1,10 +1,21 @@
 import numpy as np
 import cv2
 import time
+# from card import Card
+
+# MODULE_PATH = "/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/__init__.py"
+# MODULE_PATH = "/home/antonio/solitaire-yolo/__init__.py"
+# MODULE_NAME = "card1"
+# import importlib.util
+# import sys
+# spec = importlib.util.spec_from_file_location(MODULE_NAME, MODULE_PATH)
+# module = importlib.util.module_from_spec(spec)
+# sys.modules[spec.name] = module
+# spec.loader.exec_module(module)
+
 from model.card import Card
 
-
-def detect(image_BGR, debug='no'):
+def detect(image_BGR, picNumber, debug='no'):
 
     # image_BGR = cv2.imread('../images/IMG_1485.jpg')
     if debug == 'yes':
@@ -34,15 +45,15 @@ def detect(image_BGR, debug='no'):
         cv2.destroyWindow('Blob Image')
 
     # Loading class labels from file
-    with open('config/classes.names') as f:
+    with open('../config/classes.names') as f:
         labels = [line.strip() for line in f]
 
     print('List with labels names:')
     print(labels)
 
     # Loading trained YOLO v3 Objects Detector
-    network = cv2.dnn.readNetFromDarknet('config/full_set.cfg',
-                                         'config/full_set_00001_4000.weights')
+    network = cv2.dnn.readNetFromDarknet('../config/full_set.cfg',
+                                         '../config/full_set_00001_4000.weights')
 
     # Getting list with names of all layers from YOLO v3 network
     layers_names_all = network.getLayerNames()
@@ -112,7 +123,7 @@ def detect(image_BGR, debug='no'):
             counter += 1
             print(labels[int(class_numbers[i])])
 
-            # Getting current bounding box coordinates,
+            # Getting current bounding box coordinates
             x_min, y_min = bounding_boxes[i][0], bounding_boxes[i][1]
             box_width, box_height = bounding_boxes[i][2], bounding_boxes[i][3]
 
@@ -129,10 +140,10 @@ def detect(image_BGR, debug='no'):
                           (x_min + box_width, y_min + box_height),
                           colour_box_current, 4)
             print('Coords: [', x_min, ',', y_min, ']')
-            card = Card(labels[int(class_numbers[i])], x_min, y_min)
+            card = Card(labels[int(class_numbers[i])], x_min, y_min, picNumber)
             insert = True
             for c in cards:
-                if c.suitNnumber.__eq__(card.suitNnumber):
+                if c.suitNumber.__eq__(card.suitNumber):
                     insert = False
 
             if insert:
@@ -154,9 +165,10 @@ def detect(image_BGR, debug='no'):
 
 
     # Showing Original Image with Detected Objects
-    cv2.namedWindow('Detections', cv2.WINDOW_NORMAL)
-    cv2.imshow('Detections', image_BGR)
-    cv2.waitKey(0)
-    cv2.destroyWindow('Detections')
+    if debug == 'yes':
+        cv2.namedWindow('Detections', cv2.WINDOW_NORMAL)
+        cv2.imshow('Detections', image_BGR)
+        cv2.waitKey(0)
+        cv2.destroyWindow('Detections')
 
     return cards
