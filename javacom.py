@@ -1,6 +1,5 @@
 import json
 import requests
-import jsonpickle
 from model.card import Card
 
 # Initalize cards
