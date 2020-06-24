@@ -9,8 +9,8 @@
 # spec.loader.exec_module(module)
 
 import sys
-#sys.path.append("/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/yolo")
-sys.path.append("/home/antonio/solitaire-yolo/yolo")
+# sys.path.append("/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/yolo")
+# sys.path.append("/home/antonio/solitaire-yolo/yolo")
 
 from main.yolo.imageproc import chuckify
 # from coordinates import rowify
