@@ -1,5 +1,10 @@
-import sys
-sys.path.append('/home/antonio/solitaire-yolo/yolo')
+# import sys
+# sys.path.append('/home/antonio/solitaire-yolo/yolo')
+
+import importlib.util
+spec = importlib.util.spec_from_file_location("imageproc", "/home/antonio/solitaire-yolo/yolo")
+
+
 from yolo.imageproc import chuckify
 # from coordinates import rowify
 from flask import Flask
