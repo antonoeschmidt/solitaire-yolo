@@ -4,6 +4,7 @@ from flask import Flask
 from flask import request
 import cv2
 import urllib
+import cv2
 app = Flask(__name__)
 
 @app.route('/test', methods=['GET'])
@@ -54,4 +55,4 @@ flask run --host=0.0.0.0 --port=80
 # cv2.imshow('Final', img)
 # cv2.waitKey(0)
 # cv2.destroyWindow('Finall')
-rowify('../images/IMG_1488.JPG')
+rowify(r'C:\Users\swold\PycharmProjects\solitaire-yolo\images\solitaire-test04.jpg')
