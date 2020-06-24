@@ -15,7 +15,7 @@ def getPicture():
     # get picture from IMGUR
     url = request.args.get('url')
     print('URL:', url)
-    resp = urllib.request.urlretrieve('' + url, 'flask/testFLASK.jpg')
+    resp = urllib.request.urlretrieve('' + url, 'flask_server/testFLASK.jpg')
     print(resp.code)
     return 'Success'
 
@@ -43,10 +43,10 @@ def quit():
 '''
 ** Commands needed to run FLASK server **
 
-export FLASK_APP=flask/pyServer.py
+export FLASK_APP=flask_server/pyServer.py
 export FLASK_ENV=development 
-flask run
-flask run --host=0.0.0.0 --port=80
+flask_server run
+flask_server run --host=0.0.0.0 --port=80
 
 '''
 # url = 'https://i.imgur.com/96xIyVb.jpg'
@@ -61,6 +61,8 @@ flask run --host=0.0.0.0 --port=80
 # cv2.waitKey(0)
 # cv2.destroyWindow('Finall')
 # rowify('../images/IMG_1488.JPG')
-for d in sys.path:
-    print(d)
-
+# for d in sys.path:
+  #  print(d)
+import cv2
+img = cv2.imread('images/IMG_1488.JPG')
+chuckify(img)
