@@ -1,5 +1,5 @@
-from yolo.imageproc import chuckify
-from coordinates import rowify
+from ..yolo.imageproc import chuckify
+# from coordinates import rowify
 from flask import Flask
 from flask import request
 import cv2
@@ -49,11 +49,12 @@ flask run --host=0.0.0.0 --port=80
 # h, resp = urllib.request.urlretrieve(url, 'testFLASK.jpg')
 # print(resp)
 
-img = cv2.imread('../images/IMG_1488.JPG')
-cards = chuckify(img)
+# img = cv2.imread('../images/IMG_1488.JPG')
+# cards = chuckify(img)
 # for i in cards:
 #     print(i.suitNumber)
 # cv2.imshow('Final', img)
 # cv2.waitKey(0)
 # cv2.destroyWindow('Finall')
 # rowify('../images/IMG_1488.JPG')
+
