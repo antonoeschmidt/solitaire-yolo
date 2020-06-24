@@ -1,4 +1,4 @@
-from ..yolo.imageproc import chuckify
+from yolo.imageproc import chuckify
 # from coordinates import rowify
 from flask import Flask
 from flask import request
