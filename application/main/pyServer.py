@@ -1,4 +1,4 @@
-from application import app
+from main import app
 import sys
 # sys.path.append("/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/yolo")
 # sys.path.append("/home/antonio/solitaire-yolo/yolo")
@@ -10,10 +10,13 @@ from yolo.imageproc import chuckify
 # from main.yolo.imageproc import chuckify
 
 # from coordinates import rowify
-from flask import Flask
+from flask import Flask, Blueprint
 from flask import request
 import urllib
 # app = Flask(__name__)
+
+bp = Blueprint("auth", __name__, url_prefix="/auth")
+
 
 @app.route('/', methods=['GET'])
 def home():
