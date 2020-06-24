@@ -8,13 +8,14 @@
 # sys.modules[spec.name] = module
 # spec.loader.exec_module(module)
 from coordinates import rowify
+from javacom import jsonize
 
 from yolo import imageproc
 import sys
-#sys.path.append("/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/yolo")
+
+# sys.path.append("/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/yolo")
 sys.path.append("/home/antonio/solitaire-yolo/yolo")
 from yolo.imageproc import chuckify
-
 
 # from yolo.imageproc import chuckify
 # from coordinates import rowify
@@ -23,6 +24,7 @@ from flask import request
 import cv2
 import urllib
 import cv2
+
 app = Flask(__name__)
 
 
@@ -35,6 +37,7 @@ def getPicture():
     print(resp.code)
     return 'Success'
 
+
 @app.route('/mark', methods=['GET'])
 def mark():
     # cards = chuckify('../images/IMG_1488.JPG')
@@ -44,6 +47,7 @@ def mark():
     for name in sys.builtin_module_names:
         print(name)
 
+
 @app.route('/testpicture', methods=['GET'])
 def testingpicture():
     # get picture from IMGUR
@@ -51,11 +55,14 @@ def testingpicture():
     print('URL:', url)
     return 'Success. Received url was: ' + url
 
+
 @app.route('/quit')
 def quit():
     func = request.environ.get('werkzeug.server.shutdown')
     func()
     return "Quitting..."
+
+
 '''
 ** Commands needed to run FLASK server **
 
@@ -76,9 +83,9 @@ flask run --host=0.0.0.0 --port=80
 # cv2.imshow('Final', img)
 # cv2.waitKey(0)
 # cv2.destroyWindow('Finall')
-rowify(r'C:\Users\swold\PycharmProjects\solitaire-yolo\images\solitaire-test04.jpg')
+gameboard = rowify(r'C:\Users\swold\PycharmProjects\solitaire-yolo\images\solitaire-test04.jpg')
+jsonize(gameboard)
 
 # rowify('../images/IMG_1488.JPG')
-for d in sys.path:
-    print(d)
-
+# for d in sys.path:
+#    print(d)

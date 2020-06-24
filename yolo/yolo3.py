@@ -13,7 +13,7 @@ import time
 # sys.modules[spec.name] = module
 # spec.loader.exec_module(module)
 
-from model.card import Card
+from card import Card
 
 def detect(image_BGR, picNumber, debug='no'):
 

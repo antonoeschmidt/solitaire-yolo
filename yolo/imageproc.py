@@ -1,6 +1,5 @@
 import cv2
 from yolo.yolo3 import detect
-from card import Card
 
 
 def chuckify(img):
