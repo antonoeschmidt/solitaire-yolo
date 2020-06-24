@@ -1,4 +1,4 @@
-from yolo import imageproc
+from yolo.imageproc import chuckify
 from coordinates import rowify
 from flask import Flask
 from flask import request
@@ -19,7 +19,7 @@ def getPicture():
 
 @app.route('/mark', methods=['GET'])
 def mark():
-    cards = imageproc.chuckify('../images/IMG_1488.JPG')
+    cards = chuckify('../images/IMG_1488.JPG')
     for i in cards:
         print(i)
     return 'Success'
@@ -50,7 +50,7 @@ flask run --host=0.0.0.0 --port=80
 # print(resp)
 
 img = cv2.imread('../images/IMG_1488.JPG')
-cards = imageproc.chuckify(img)
+cards = chuckify(img)
 # for i in cards:
 #     print(i.suitNumber)
 # cv2.imshow('Final', img)
