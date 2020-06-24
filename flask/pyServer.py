@@ -8,7 +8,6 @@ import urllib
 app = Flask(__name__)
 
 
-
 @app.route('/test', methods=['GET'])
 def getPicture():
     # get picture from IMGUR
