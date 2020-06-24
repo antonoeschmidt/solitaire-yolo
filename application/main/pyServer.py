@@ -43,7 +43,7 @@ def mark():
     time = end - start
     for i in cards:
         print(i)
-    return 'Processing took ' + time + ' seconds.'
+    return 'Processing took ' + str(time) + ' seconds.'
 
 @app.route('/testpicture', methods=['GET'])
 def testingpicture():
