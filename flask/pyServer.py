@@ -1,4 +1,5 @@
-from ..yolo.imageproc import chuckify
+import sys
+# from yolo.imageproc import chuckify
 # from coordinates import rowify
 from flask import Flask
 from flask import request
@@ -19,10 +20,12 @@ def getPicture():
 
 @app.route('/mark', methods=['GET'])
 def mark():
-    cards = chuckify('../images/IMG_1488.JPG')
-    for i in cards:
-        print(i)
-    return 'Success'
+    # cards = chuckify('../images/IMG_1488.JPG')
+    # for i in cards:
+    #    print(i)
+    # return 'Success'
+    for name in sys.builtin_module_names:
+        print(name)
 
 @app.route('/testpicture', methods=['GET'])
 def testingpicture():
