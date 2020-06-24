@@ -15,6 +15,7 @@ from flask import Flask, Blueprint
 from flask import request
 import urllib
 import cv2
+import time as t
 # app = Flask(__name__)
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
@@ -35,11 +36,14 @@ def getPicture():
 
 @app.route('/mark', methods=['GET'])
 def mark():
+    start = t.time()
     img = cv2.imread('/home/antonio/solitaire-yolo/application/main/images/IMG_1488.JPG')
     cards = imageproc.chuckify(img)
+    end = t.time()
+    time = end - start
     for i in cards:
         print(i)
-    return 'Mark'
+    return 'Processing took ' + time + ' seconds.'
 
 @app.route('/testpicture', methods=['GET'])
 def testingpicture():
