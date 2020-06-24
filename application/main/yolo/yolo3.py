@@ -12,8 +12,7 @@ import time
 # module = importlib.util.module_from_spec(spec)
 # sys.modules[spec.name] = module
 # spec.loader.exec_module(module)
-
-from card import Card
+from main.card import Card
 # from main.card import Card
 
 # path_names = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/classes.names' 
