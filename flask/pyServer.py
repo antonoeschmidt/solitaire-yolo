@@ -1,11 +1,29 @@
+# MODULE_PATH = "/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/yolo/__init__.py"
+# MODULE_PATH = "/home/antonio/solitaire-yolo/yolo/__init__.py"
+# MODULE_NAME = "yolo"
+# import importlib.util
+# import sys
+# spec = importlib.util.spec_from_file_location(MODULE_NAME, MODULE_PATH)
+# module = importlib.util.module_from_spec(spec)
+# sys.modules[spec.name] = module
+# spec.loader.exec_module(module)
+
+from yolo import imageproc
+import sys
+#sys.path.append("/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/yolo")
+sys.path.append("/home/antonio/solitaire-yolo/yolo")
 from yolo.imageproc import chuckify
-from coordinates import rowify
+
+
+# from yolo.imageproc import chuckify
+# from coordinates import rowify
 from flask import Flask
 from flask import request
 import cv2
 import urllib
 import cv2
 app = Flask(__name__)
+
 
 @app.route('/test', methods=['GET'])
 def getPicture():
@@ -18,10 +36,12 @@ def getPicture():
 
 @app.route('/mark', methods=['GET'])
 def mark():
-    cards = chuckify('../images/IMG_1488.JPG')
-    for i in cards:
-        print(i)
-    return 'Success'
+    # cards = chuckify('../images/IMG_1488.JPG')
+    # for i in cards:
+    #    print(i)
+    # return 'Success'
+    for name in sys.builtin_module_names:
+        print(name)
 
 @app.route('/testpicture', methods=['GET'])
 def testingpicture():
@@ -56,3 +76,8 @@ flask run --host=0.0.0.0 --port=80
 # cv2.waitKey(0)
 # cv2.destroyWindow('Finall')
 rowify(r'C:\Users\swold\PycharmProjects\solitaire-yolo\images\solitaire-test04.jpg')
+
+# rowify('../images/IMG_1488.JPG')
+for d in sys.path:
+    print(d)
+
