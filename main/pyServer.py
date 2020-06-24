@@ -2,7 +2,9 @@ import sys
 # sys.path.append("/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/yolo")
 # sys.path.append("/home/antonio/solitaire-yolo/yolo")
 
-from yolo.imageproc import chuckify
+# from yolo.imageproc import chuckify
+from main.yolo.imageproc import chuckify
+
 # from coordinates import rowify
 from flask import Flask
 from flask import request

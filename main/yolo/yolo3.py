@@ -13,11 +13,15 @@ import time
 # sys.modules[spec.name] = module
 # spec.loader.exec_module(module)
 
-from card import Card
+# from card import Card
+from main.card import Card
 
 path_names = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/classes.names' 
-path_cfg = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/classes.names'
-path_we = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/classes.names'
+path_cfg = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/full_set.cfg'
+path_we = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/full_set_00001_4000.weights'
+# path_names = '/home/antonio/solitaire-yolo/main/config/classes.names'
+# path_cfg = '/home/antonio/solitaire-yolo/main/config/full_set.cfg'
+# path_we = '/home/antonio/solitaire-yolo/main/config/full_set_00001_4000.weights'
 
 def detect(image_BGR, picNumber, debug='no'):
 
@@ -49,15 +53,14 @@ def detect(image_BGR, picNumber, debug='no'):
         cv2.destroyWindow('Blob Image')
 
     # Loading class labels from file
-    with open('/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/classes.names') as f:
+    with open(path_names) as f:
         labels = [line.strip() for line in f]
 
     print('List with labels names:')
     print(labels)
 
     # Loading trained YOLO v3 Objects Detector
-    network = cv2.dnn.readNetFromDarknet('/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/full_set.cfg',
-                                         '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/full_set_00001_4000.weights')
+    network = cv2.dnn.readNetFromDarknet(path_cfg, path_we)
 
     # Getting list with names of all layers from YOLO v3 network
     layers_names_all = network.getLayerNames()
