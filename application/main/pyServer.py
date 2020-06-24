@@ -13,7 +13,7 @@ from yolo.imageproc import chuckify
 from flask import Flask
 from flask import request
 import urllib
-app = Flask(__name__)
+# app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def home():
