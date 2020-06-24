@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-from yolo.imageproc import chuckify
-=======
 import sys
 # from yolo.imageproc import chuckify
->>>>>>> a9923c5006092383674c18417b161eaaa9280ece
 # from coordinates import rowify
 from flask import Flask
 from flask import request
