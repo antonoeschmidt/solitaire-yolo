@@ -77,6 +77,6 @@ flask_server run --host=0.0.0.0 --port=80
 # rowify('../images/IMG_1488.JPG')
 # for d in sys.path:
   #  print(d)
-# import cv2
-# img = cv2.imread('images/IMG_1488.JPG')
-# chuckify(img)
+import cv2
+img = cv2.imread('images/IMG_1488.JPG')
+imageproc.chuckify(img)
