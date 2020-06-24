@@ -8,18 +8,14 @@
 # sys.modules[spec.name] = module
 # spec.loader.exec_module(module)
 
-from yolo import imageproc
 import sys
 #sys.path.append("/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/yolo")
 sys.path.append("/home/antonio/solitaire-yolo/yolo")
-from yolo.imageproc import chuckify
 
-
-# from yolo.imageproc import chuckify
+from main.yolo.imageproc import chuckify
 # from coordinates import rowify
 from flask import Flask
 from flask import request
-import cv2
 import urllib
 app = Flask(__name__)
 
