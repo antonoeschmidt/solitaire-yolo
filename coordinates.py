@@ -148,4 +148,8 @@ def rowify(image):
                 if j[0] > maxHops[0][0]:
                     j[0] += 1
             maxHops.sort(key=lambda maxHops: maxHops[1], reverse=True)
-    cards[æ]
+    gameBoard = []
+    gameBoard.append(rowList)
+    gameBoard.append(acesList)
+    gameBoard.append(pile)
+    return gameBoard
