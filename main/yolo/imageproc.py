@@ -1,5 +1,5 @@
 import cv2
-from main.yolo.yolo3 import detect
+from yolo.yolo3 import detect
 
 
 def chuckify(img):

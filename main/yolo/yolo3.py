@@ -13,7 +13,11 @@ import time
 # sys.modules[spec.name] = module
 # spec.loader.exec_module(module)
 
-from main.card import Card
+from card import Card
+
+path_names = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/classes.names' 
+path_cfg = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/classes.names'
+path_we = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/classes.names'
 
 def detect(image_BGR, picNumber, debug='no'):
 
