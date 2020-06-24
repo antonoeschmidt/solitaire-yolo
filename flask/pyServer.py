@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/solitaire-yolo/yolo')
+sys.path.append('/home/antonio/solitaire-yolo/yolo')
 from yolo.imageproc import chuckify
 # from coordinates import rowify
 from flask import Flask
