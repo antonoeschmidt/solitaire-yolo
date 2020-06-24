@@ -1,5 +1,5 @@
-MODULE_PATH = "/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/__init__.py"
-# MODULE_PATH = "/home/antonio/solitaire-yolo/__init__.py"
+# MODULE_PATH = "/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/__init__.py"
+MODULE_PATH = "/home/antonio/solitaire-yolo/__init__.py"
 MODULE_NAME = "card1"
 import importlib.util
 import sys
