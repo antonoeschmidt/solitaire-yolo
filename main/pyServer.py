@@ -2,8 +2,11 @@ import sys
 # sys.path.append("/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/yolo")
 # sys.path.append("/home/antonio/solitaire-yolo/yolo")
 
-# from yolo.imageproc import chuckify
-from main.yolo.imageproc import chuckify
+import pathlib
+print(pathlib.Path().absolute())
+
+from yolo.imageproc import chuckify
+# from main.yolo.imageproc import chuckify
 
 # from coordinates import rowify
 from flask import Flask
@@ -29,6 +32,7 @@ def mark():
     # return 'Success'
     for name in sys.builtin_module_names:
         print(name)
+    return 'Mark'
 
 @app.route('/testpicture', methods=['GET'])
 def testingpicture():

@@ -13,15 +13,15 @@ import time
 # sys.modules[spec.name] = module
 # spec.loader.exec_module(module)
 
-# from card import Card
-from main.card import Card
+from card import Card
+# from main.card import Card
 
-path_names = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/classes.names' 
-path_cfg = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/full_set.cfg'
-path_we = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/full_set_00001_4000.weights'
-# path_names = '/home/antonio/solitaire-yolo/main/config/classes.names'
-# path_cfg = '/home/antonio/solitaire-yolo/main/config/full_set.cfg'
-# path_we = '/home/antonio/solitaire-yolo/main/config/full_set_00001_4000.weights'
+# path_names = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/classes.names' 
+# path_cfg = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/full_set.cfg'
+# path_we = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/full_set_00001_4000.weights'
+path_names = '/home/antonio/solitaire-yolo/main/config/classes.names'
+path_cfg = '/home/antonio/solitaire-yolo/main/config/full_set.cfg'
+path_we = '/home/antonio/solitaire-yolo/main/config/full_set_00001_4000.weights'
 
 def detect(image_BGR, picNumber, debug='no'):
 
