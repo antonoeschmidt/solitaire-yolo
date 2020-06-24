@@ -1,3 +1,4 @@
+from application import app
 import sys
 # sys.path.append("/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/yolo")
 # sys.path.append("/home/antonio/solitaire-yolo/yolo")
