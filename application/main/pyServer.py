@@ -5,7 +5,7 @@ print(pathlib.Path().absolute())
 
 from .yolo import imageproc
 
-from coordinates import rowify
+from .coordinates import rowify
 from javacom import jsonize
 
 # from coordinates import rowify
@@ -78,7 +78,7 @@ flask_server run --host=0.0.0.0 --port=80
 # cv2.imshow('Final', img)
 # cv2.waitKey(0)
 # cv2.destroyWindow('Finall')
-gameboard = rowify(r'C:\Users\swold\PycharmProjects\solitaire-yolo\images\solitaire-test04.jpg')
+gameboard = rowify('/home/antonio/solitaire-yolo/application/main/images/IMG_1488.JPG')
 jsonize(gameboard)
 
 # rowify('../images/IMG_1488.JPG')
