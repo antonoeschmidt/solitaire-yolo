@@ -78,9 +78,9 @@ flask_server run --host=0.0.0.0 --port=80
 # cv2.imshow('Final', img)
 # cv2.waitKey(0)
 # cv2.destroyWindow('Finall')
-gameboard = rowify('/home/antonio/solitaire-yolo/application/main/images/IMG_1488.JPG')
-print('Gameboard Success before jsonize')
-jsonize(gameboard)
+# gameboard = rowify('/home/antonio/solitaire-yolo/application/main/images/IMG_1488.JPG')
+# print('Gameboard Success before jsonize')
+# jsonize(gameboard)
 
 # rowify('../images/IMG_1488.JPG')
 # for d in sys.path:
