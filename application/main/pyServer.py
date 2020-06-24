@@ -6,10 +6,10 @@ print(pathlib.Path().absolute())
 from .yolo import imageproc
 
 from .coordinates import rowify
-from javacom import jsonize
+from .javacom import jsonize
 
 # from coordinates import rowify
-from flask import Flask, Blueprint
+from flask import Blueprint
 from flask import request
 import urllib
 import cv2

@@ -1,6 +1,6 @@
 import json
 import requests
-from card import Card
+from .card import Card
 
 
 def jsonize(gameboard):
