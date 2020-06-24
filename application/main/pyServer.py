@@ -5,6 +5,9 @@ print(pathlib.Path().absolute())
 
 from .yolo import imageproc
 
+from coordinates import rowify
+from javacom import jsonize
+
 # from coordinates import rowify
 from flask import Flask, Blueprint
 from flask import request
@@ -27,6 +30,7 @@ def getPicture():
     print(resp.code)
     return 'Success'
 
+
 @app.route('/mark', methods=['GET'])
 def mark():
     start = t.time()
@@ -38,6 +42,7 @@ def mark():
         print(i)
     return 'Processing took ' + str(time) + ' seconds.'
 
+
 @app.route('/testpicture', methods=['GET'])
 def testingpicture():
     # get picture from IMGUR
@@ -45,11 +50,14 @@ def testingpicture():
     print('URL:', url)
     return 'Success. Received url was: ' + url
 
+
 @app.route('/quit')
 def quit():
     func = request.environ.get('werkzeug.server.shutdown')
     func()
     return "Quitting..."
+
+
 '''
 ** Commands needed to run FLASK server **
 
@@ -70,6 +78,9 @@ flask_server run --host=0.0.0.0 --port=80
 # cv2.imshow('Final', img)
 # cv2.waitKey(0)
 # cv2.destroyWindow('Finall')
+gameboard = rowify(r'C:\Users\swold\PycharmProjects\solitaire-yolo\images\solitaire-test04.jpg')
+jsonize(gameboard)
+
 # rowify('../images/IMG_1488.JPG')
 # for d in sys.path:
   #  print(d)

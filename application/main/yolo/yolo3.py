@@ -70,7 +70,7 @@ def detect(image_BGR, picNumber, debug='no'):
         [layers_names_all[i[0] - 1] for i in network.getUnconnectedOutLayers()]
 
     # Setting minimum probability to eliminate weak predictions
-    probability_minimum = 0.5
+    probability_minimum = 0.59
 
     # Setting threshold for filtering weak bounding boxes with non-maximum suppression
     threshold = 0.3
@@ -150,8 +150,12 @@ def detect(image_BGR, picNumber, debug='no'):
             insert = True
             for c in cards:
                 if c.suitNumber.__eq__(card.suitNumber):
-                    insert = False
-
+                    if card.x < c.x:
+                        cards.remove(c)
+                        cards.append(card)
+                        insert = False
+                    else:
+                        insert = False
             if insert:
                 cards.append(card)
 
@@ -171,7 +175,7 @@ def detect(image_BGR, picNumber, debug='no'):
 
 
     # Showing Original Image with Detected Objects
-    if debug == 'yes':
+    if debug == 'final':
         cv2.namedWindow('Detections', cv2.WINDOW_NORMAL)
         cv2.imshow('Detections', image_BGR)
         cv2.waitKey(0)
