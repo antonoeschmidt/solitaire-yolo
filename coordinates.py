@@ -148,6 +148,34 @@ def rowify(image):
                 if j[0] > maxHops[0][0]:
                     j[0] += 1
             maxHops.sort(key=lambda maxHops: maxHops[1], reverse=True)
+
+    # order acesList (and add empty lists if necessary)
+    emptyAces = []
+
+
+    if len(acesList) != 0:
+        missingLists = 4 - len(acesList)
+        for i in range(missingLists):
+            acesList.append(emptyAces)
+
+        xx = 0
+        while xx < 4:
+            increment = True
+            if len(acesList[xx]) != 0:
+                tempSwitch = []
+                if acesList[xx][0].suit != xx:
+                    tempSwitch = acesList[acesList[xx][0].suit]
+                    acesList[acesList[xx][0].suit] = acesList[xx]
+                    acesList[xx] = tempSwitch
+                    xx = 0
+                    increment = False
+            if increment:
+                xx += 1
+    else:
+        for i in range(4):
+            acesList.append(emptyAces)
+
+
     gameBoard = []
     gameBoard.append(rowList)
     gameBoard.append(acesList)

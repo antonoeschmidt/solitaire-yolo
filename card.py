@@ -14,13 +14,13 @@ class Card(object):
             h = 1
             color = 1
         if suitLetter == 'd':
-            h = 2
+            h = 0
             color = 1
         if suitLetter == 'c':
             h = 3
             color = -1
         if suitLetter == 's':
-            h = 4
+            h = 2
             color = -1
 
         self.suit = h

@@ -83,7 +83,7 @@ flask run --host=0.0.0.0 --port=80
 # cv2.imshow('Final', img)
 # cv2.waitKey(0)
 # cv2.destroyWindow('Finall')
-gameboard = rowify(r'C:\Users\swold\PycharmProjects\solitaire-yolo\images\solitaire-test04.jpg')
+gameboard = rowify(r'C:\Users\swold\PycharmProjects\solitaire-yolo\images\solitaire-test02.jpg')
 jsonize(gameboard)
 
 # rowify('../images/IMG_1488.JPG')
