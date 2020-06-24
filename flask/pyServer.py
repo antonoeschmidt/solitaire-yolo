@@ -60,4 +60,6 @@ flask run --host=0.0.0.0 --port=80
 # cv2.waitKey(0)
 # cv2.destroyWindow('Finall')
 # rowify('../images/IMG_1488.JPG')
+for d in sys.path:
+    print(d)
 
