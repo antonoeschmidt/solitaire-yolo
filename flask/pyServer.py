@@ -1,11 +1,14 @@
-# import sys
+import sys
 # sys.path.append('/home/antonio/solitaire-yolo/yolo')
 
 import importlib.util
 spec = importlib.util.spec_from_file_location("imageproc", "/home/antonio/solitaire-yolo/yolo")
+foo = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(foo)
+foo.MyClass()
 
 
-from yolo.imageproc import chuckify
+# from yolo.imageproc import chuckify
 # from coordinates import rowify
 from flask import Flask
 from flask import request
