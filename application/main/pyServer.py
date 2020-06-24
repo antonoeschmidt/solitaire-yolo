@@ -14,6 +14,7 @@ from .yolo import imageproc
 from flask import Flask, Blueprint
 from flask import request
 import urllib
+import cv2
 # app = Flask(__name__)
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
@@ -34,12 +35,10 @@ def getPicture():
 
 @app.route('/mark', methods=['GET'])
 def mark():
-    # cards = chuckify('../images/IMG_1488.JPG')
-    # for i in cards:
-    #    print(i)
-    # return 'Success'
-    for name in sys.builtin_module_names:
-        print(name)
+    img = cv2.imread('/home/antonio/solitaire-yolo/application/main/images/IMG_1488.JPG')
+    cards = imageproc.chuckify(img)
+    for i in cards:
+        print(i)
     return 'Mark'
 
 @app.route('/testpicture', methods=['GET'])
@@ -77,6 +76,3 @@ flask_server run --host=0.0.0.0 --port=80
 # rowify('../images/IMG_1488.JPG')
 # for d in sys.path:
   #  print(d)
-import cv2
-img = cv2.imread('/home/antonio/solitaire-yolo/application/main/images/IMG_1488.JPG')
-imageproc.chuckify(img)
