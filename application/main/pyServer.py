@@ -6,7 +6,8 @@ import sys
 import pathlib
 print(pathlib.Path().absolute())
 
-from yolo.imageproc import chuckify
+# from yolo.imageproc import chuckify
+from .yolo import imageproc
 # from main.yolo.imageproc import chuckify
 
 # from coordinates import rowify
