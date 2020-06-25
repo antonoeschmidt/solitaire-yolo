@@ -47,13 +47,14 @@ def testingpicture():
     img = cv2.imread('/home/antonio/solitaire-yolo/application/main/images/newest.jpg')
     start = t.time()
     gameboard = rowify(img)
-    jsonize(gameboard)
+    jsonstring = jsonize(gameboard)
     end = t.time()
     time = end - start
 
     print('URL:', url)
 
-    return 'Success. Received url was: ' + url + '. Processing took ' + str(time)
+    # return 'Success. Received url was: ' + url + '. Processing took ' + str(time)
+    return jsonstring
 
 @app.route('/quit')
 def quit():
