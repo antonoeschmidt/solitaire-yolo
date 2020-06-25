@@ -17,10 +17,10 @@ def jsonize(gameboard):
             data.insert(dataLocation, list)
             dataLocation += 1
 
-    print("SENDING OBJECTS \n", data)
+    print("SENDING OBJECTS \n", json=data)
 
     # url = 'http://localhost:8081/Hello'
     # headers = {'Content-Type': "application/json", 'Accept': "application/json"}
     # request = requests.post(url, json=data, headers=headers)
-
+    #
     # print("Hvad der reelt bliver sendt : \n", request.text)
