@@ -46,7 +46,7 @@ def testingpicture():
     urllib.request.urlretrieve(url, '/home/antonio/solitaire-yolo/application/main/images/newest.jpg')
     img = cv2.imread('/home/antonio/solitaire-yolo/application/main/images/newest.jpg')
     start = t.time()
-    gameboard = rowify(img)
+    # gameboard = rowify(img)
     # jsonize(gameboard)
     cards = imageproc.chuckify(img)
     end = t.time()
