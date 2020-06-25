@@ -12,8 +12,15 @@ import time
 # module = importlib.util.module_from_spec(spec)
 # sys.modules[spec.name] = module
 # spec.loader.exec_module(module)
+from main.card import Card
+# from main.card import Card
 
-from model.card import Card
+# path_names = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/classes.names' 
+# path_cfg = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/full_set.cfg'
+# path_we = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/full_set_00001_4000.weights'
+path_names = '/home/antonio/solitaire-yolo/application/main/config/classes.names'
+path_cfg = '/home/antonio/solitaire-yolo/application/main/config/full_set.cfg'
+path_we = '/home/antonio/solitaire-yolo/application/main/config/full_set_00001_4000.weights'
 
 def detect(image_BGR, picNumber, debug='no'):
 
@@ -45,15 +52,14 @@ def detect(image_BGR, picNumber, debug='no'):
         cv2.destroyWindow('Blob Image')
 
     # Loading class labels from file
-    with open('../config/classes.names') as f:
+    with open(path_names) as f:
         labels = [line.strip() for line in f]
 
-    print('List with labels names:')
-    print(labels)
+    # print('List with labels names:')
+    # print(labels)
 
     # Loading trained YOLO v3 Objects Detector
-    network = cv2.dnn.readNetFromDarknet('../config/full_set.cfg',
-                                         '../config/full_set_00001_4000.weights')
+    network = cv2.dnn.readNetFromDarknet(path_cfg, path_we)
 
     # Getting list with names of all layers from YOLO v3 network
     layers_names_all = network.getLayerNames()
@@ -136,9 +142,9 @@ def detect(image_BGR, picNumber, debug='no'):
             # print(colour_box_current)  # [172 , 10, 127]
 
             # Drawing bounding box on the original image
-            cv2.rectangle(image_BGR, (x_min, y_min),
-                          (x_min + box_width, y_min + box_height),
-                          colour_box_current, 4)
+            # cv2.rectangle(image_BGR, (x_min, y_min),
+            #              (x_min + box_width, y_min + box_height),
+            #               colour_box_current, 4)
             print('Coords: [', x_min, ',', y_min, ']')
             card = Card(labels[int(class_numbers[i])], x_min, y_min, picNumber)
             insert = True
@@ -155,7 +161,7 @@ def detect(image_BGR, picNumber, debug='no'):
 
             # Putting text with label and confidence on the original image
             cv2.putText(image_BGR, text_box_current, (x_min, y_min - 5),
-                        cv2.FONT_HERSHEY_COMPLEX, 1, colour_box_current, 3)
+                        cv2.FONT_HERSHEY_COMPLEX, 1, colour_box_current, 2)
 
     # Comparing how many objects where before non-maximum suppression
     # and left after
