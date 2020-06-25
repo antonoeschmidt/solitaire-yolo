@@ -5,13 +5,13 @@ print(pathlib.Path().absolute())
 
 from .yolo import imageproc
 
-# from coordinates import rowify
+from .coordinates import rowify
 from flask import Flask, Blueprint
 from flask import request
 import urllib
 import cv2
 import time as t
-import json
+from .javacom import jsonize
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
 
@@ -46,6 +46,8 @@ def testingpicture():
     urllib.request.urlretrieve(url, '/home/antonio/solitaire-yolo/application/main/images/newest.jpg')
     img = cv2.imread('/home/antonio/solitaire-yolo/application/main/images/newest.jpg')
     start = t.time()
+    gameboard = rowify(img)
+    jsonize(gameboard)
     cards = imageproc.chuckify(img)
     end = t.time()
     time = end - start

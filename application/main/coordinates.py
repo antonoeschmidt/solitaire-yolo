@@ -3,8 +3,7 @@ import cv2
 import math
 
 
-def getCoordinates(image):
-    img = cv2.imread(image)
+def getCoordinates(img):
 
     buffer = 100
 
