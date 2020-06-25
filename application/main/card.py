@@ -1,19 +1,28 @@
 class Card(object):
+
     def __init__(self, suitNnumber, x, y, picNumber):
         self.suitNumber = suitNnumber
         self.x = x
         self.y = y
         self.picNumber = picNumber
-        self.suit = suitNnumber[0:1]
 
-        h = suitNnumber[1:len(suitNnumber)]
-        if h == 'h':
+        suitLetter = suitNnumber[0:1]
+        valueString = suitNnumber[1:len(suitNnumber)]
+        h = 0
+        color = 0
+        if suitLetter == 'h':
             h = 1
-        if h == 'd':
-            h == 2
-        if h == 'c':
-            h == 3
-        if h == 's':
-            h == 4
+            color = 1
+        if suitLetter == 'd':
+            h = 0
+            color = 1
+        if suitLetter == 'c':
+            h = 3
+            color = -1
+        if suitLetter == 's':
+            h = 2
+            color = -1
 
-        self.value = h
+        self.suit = h
+        self.value = int(valueString)
+        self.color = color
