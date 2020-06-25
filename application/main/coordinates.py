@@ -1,5 +1,4 @@
 from .yolo.imageproc import chuckify
-import cv2
 import math
 
 def getCoordinates(img):
@@ -30,9 +29,6 @@ def getCoordinates(img):
         current.y = global_y
         final_cards.append(current)
 
-    cv2.imshow("final", img)
-    cv2.waitKey(0)
-    cv2.destroyWindow("final")
     return final_cards
 
 
