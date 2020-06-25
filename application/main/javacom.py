@@ -23,10 +23,10 @@ def jsonize(gameboard):
     my_json_string = json.dumps(data)
     print(my_json_string)
 
-    url = 'http://35.246.214.109:3333/Hello'
-    headers = {'Content-Type': "application/json", 'Accept': "application/json"}
-    request = requests.post(url, json=data, headers=headers)
-
-    print("Hvad der reelt bliver sendt : \n", request.text)
+    # url = 'http://35.246.214.109:3333/Hello'
+    # headers = {'Content-Type': "application/json", 'Accept': "application/json"}
+    # request = requests.post(url, json=data, headers=headers)
+    #
+    # print("Hvad der reelt bliver sendt : \n", request.text)
 
     return my_json_string
