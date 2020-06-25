@@ -1,4 +1,4 @@
-from application.main.yolo.imageproc import chuckify
+from .yolo.imageproc import chuckify
 import cv2
 import math
 
