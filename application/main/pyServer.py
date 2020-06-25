@@ -11,6 +11,7 @@ from flask import request
 import urllib
 import cv2
 import time as t
+import json
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
 
@@ -37,7 +38,7 @@ def mark():
     for i in cards:
         print(i.suitNumber)
     # return 'Processing took ' + str(time) + ' seconds.'
-    return cards
+    return json.dumps(cards)
 
 @app.route('/testpicture', methods=['GET'])
 def testingpicture():
