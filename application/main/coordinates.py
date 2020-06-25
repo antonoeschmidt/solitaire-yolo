@@ -42,8 +42,8 @@ def rowify(image):
     pile = []
 
     rowNumber = 0
-    xLeeway = 400
-    yLeeway = 400
+    xLeeway = 200
+    yLeeway = 200
 
     cards = getCoordinates(image)
     cards_read = cards.copy()
