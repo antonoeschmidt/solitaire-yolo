@@ -52,6 +52,7 @@ def testingpicture():
     for i in cards:
         print(i.suitNumber)
     print('URL:', url)
+    #
     return 'Success. Received url was: ' + url + '. Processing took ' + str(time)
 
 @app.route('/quit')
