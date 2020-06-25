@@ -35,7 +35,7 @@ def mark():
     end = t.time()
     time = end - start
     for i in cards:
-        print(i.picNumber)
+        print(i.suitNnumber)
     return 'Processing took ' + str(time) + ' seconds.'
 
 @app.route('/testpicture', methods=['GET'])
