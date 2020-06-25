@@ -72,7 +72,7 @@ def rowify(image):
 
         for i in currentSet:
             if 0 < i.y - finalSet[len(finalSet) - 1].y <= 300 \
-                    and i.value == finalSet[len(finalSet) - 1].value - 1 \
+                    and i.value == (finalSet[len(finalSet) - 1].value - 1) \
                     and i.color + finalSet[len(finalSet) - 1].color == 0:
                 finalSet.append(i)
                 cards.remove(i)
