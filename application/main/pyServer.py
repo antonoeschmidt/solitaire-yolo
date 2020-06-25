@@ -1,3 +1,8 @@
+"""
+@author: Anton Østergaard Schmidt, s163053
+
+"""
+
 from main import app
 
 import pathlib
@@ -68,5 +73,4 @@ export FLASK_APP=pyServer.py
 export FLASK_ENV=development 
 flask_server run
 flask_server run --host=0.0.0.0 --port=80
-
 '''
