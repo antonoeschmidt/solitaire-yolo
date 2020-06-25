@@ -55,8 +55,8 @@ def detect(image_BGR, picNumber, debug='no'):
     with open(path_names) as f:
         labels = [line.strip() for line in f]
 
-    print('List with labels names:')
-    print(labels)
+    # print('List with labels names:')
+    # print(labels)
 
     # Loading trained YOLO v3 Objects Detector
     network = cv2.dnn.readNetFromDarknet(path_cfg, path_we)
