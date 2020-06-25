@@ -142,9 +142,9 @@ def detect(image_BGR, picNumber, debug='no'):
             # print(colour_box_current)  # [172 , 10, 127]
 
             # Drawing bounding box on the original image
-            cv2.rectangle(image_BGR, (x_min, y_min),
-                          (x_min + box_width, y_min + box_height),
-                          colour_box_current, 4)
+            # cv2.rectangle(image_BGR, (x_min, y_min),
+            #              (x_min + box_width, y_min + box_height),
+            #               colour_box_current, 4)
             print('Coords: [', x_min, ',', y_min, ']')
             card = Card(labels[int(class_numbers[i])], x_min, y_min, picNumber)
             insert = True
@@ -161,7 +161,7 @@ def detect(image_BGR, picNumber, debug='no'):
 
             # Putting text with label and confidence on the original image
             cv2.putText(image_BGR, text_box_current, (x_min, y_min - 5),
-                        cv2.FONT_HERSHEY_COMPLEX, 1, colour_box_current, 3)
+                        cv2.FONT_HERSHEY_COMPLEX, 1, colour_box_current, 2)
 
     # Comparing how many objects where before non-maximum suppression
     # and left after
