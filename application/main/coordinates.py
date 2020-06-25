@@ -95,7 +95,7 @@ def rowify(image):
     metaRowList = []
 
     for i in list2dAverages:
-        if i[2] < 350:
+        if i[2] < 300:
             if i[1] < 650:
                 pile.append(list2d[i[0]])
             else:
