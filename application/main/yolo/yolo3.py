@@ -1,23 +1,15 @@
+"""
+@author: Anton Østergaard Schmidt, s163053
+Inspiration for this implementation is taken from Valentyn Sichkar's
+course on Udemy: Training YOLO v3 for Objects Detection with Custom Data
+"""
+
 import numpy as np
 import cv2
 import time
-# from card import Card
 
-# MODULE_PATH = "/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/__init__.py"
-# MODULE_PATH = "/home/antonio/solitaire-yolo/__init__.py"
-# MODULE_NAME = "card1"
-# import importlib.util
-# import sys
-# spec = importlib.util.spec_from_file_location(MODULE_NAME, MODULE_PATH)
-# module = importlib.util.module_from_spec(spec)
-# sys.modules[spec.name] = module
-# spec.loader.exec_module(module)
 from main.card import Card
-# from main.card import Card
 
-# path_names = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/classes.names' 
-# path_cfg = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/full_set.cfg'
-# path_we = '/Users/antonoeschmidt/PycharmProjects/solitaire-yolo/main/config/full_set_00001_4000.weights'
 path_names = '/home/antonio/solitaire-yolo/application/main/config/classes.names'
 path_cfg = '/home/antonio/solitaire-yolo/application/main/config/full_set.cfg'
 path_we = '/home/antonio/solitaire-yolo/application/main/config/full_set_00001_4000.weights'
