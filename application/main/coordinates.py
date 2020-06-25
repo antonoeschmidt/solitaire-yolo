@@ -168,6 +168,9 @@ def rowify(image):
         for i in range(4):
             acesList.append(emptyAces)
 
+    if len(pile) == 0:
+        emptyPile = []
+        pile.append(emptyPile)
 
     gameBoard = []
     gameBoard.append(rowList)
