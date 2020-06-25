@@ -37,8 +37,7 @@ def mark():
     time = end - start
     for i in cards:
         print(i.suitNumber)
-    # return 'Processing took ' + str(time) + ' seconds.'
-    return json.dumps(cards)
+    return 'Processing took ' + str(time) + ' seconds.'
 
 @app.route('/testpicture', methods=['GET'])
 def testingpicture():
