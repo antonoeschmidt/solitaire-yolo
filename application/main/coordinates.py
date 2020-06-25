@@ -2,9 +2,7 @@ from .yolo.imageproc import chuckify
 import cv2
 import math
 
-def getCoordinates(image):
-    img = cv2.imread(image)
-
+def getCoordinates(img):
     buffer = 72
 
     x_size = img.shape[1]
