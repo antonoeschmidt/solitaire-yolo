@@ -96,7 +96,7 @@ def rowify(image):
 
     for i in list2dAverages:
         if i[2] < 200:
-            if i[1] < 300:
+            if i[1] < 650:
                 pile.append(list2d[i[0]])
             else:
                 acesList.append(list2d[i[0]])
