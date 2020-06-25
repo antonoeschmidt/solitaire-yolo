@@ -43,9 +43,11 @@ def mark():
 def testingpicture():
     # get picture from IMGUR
     url = request.args.get('url')
-    # url = 'https://i.imgur.com/96xIyVb.jpg'
     urllib.request.urlretrieve(url, '/home/antonio/solitaire-yolo/application/main/images/newest.jpg')
-
+    img = cv2.imread('/home/antonio/solitaire-yolo/application/main/images/newest.jpg')
+    cards = imageproc.chuckify(img)
+    for i in cards:
+        print(i.suitNumber)
     print('URL:', url)
     return 'Success. Received url was: ' + url
 
