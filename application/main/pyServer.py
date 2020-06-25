@@ -45,11 +45,14 @@ def testingpicture():
     url = request.args.get('url')
     urllib.request.urlretrieve(url, '/home/antonio/solitaire-yolo/application/main/images/newest.jpg')
     img = cv2.imread('/home/antonio/solitaire-yolo/application/main/images/newest.jpg')
+    start = t.time()
     cards = imageproc.chuckify(img)
+    end = t.time()
+    time = end - start
     for i in cards:
         print(i.suitNumber)
     print('URL:', url)
-    return 'Success. Received url was: ' + url
+    return 'Success. Received url was: ' + url + '. Processing took ' + str(time)
 
 @app.route('/quit')
 def quit():
