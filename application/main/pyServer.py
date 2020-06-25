@@ -47,14 +47,12 @@ def testingpicture():
     img = cv2.imread('/home/antonio/solitaire-yolo/application/main/images/newest.jpg')
     start = t.time()
     gameboard = rowify(img)
-    # jsonize(gameboard)
-    cards = imageproc.chuckify(img)
+    jsonize(gameboard)
     end = t.time()
     time = end - start
-    for i in cards:
-        print(i.suitNumber)
+
     print('URL:', url)
-    #
+
     return 'Success. Received url was: ' + url + '. Processing took ' + str(time)
 
 @app.route('/quit')
